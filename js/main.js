@@ -207,3 +207,17 @@
     });
 
 })(jQuery);
+
+  const toggle = document.getElementById("darkModeToggle");
+  const body = document.body;
+
+  toggle.addEventListener("change", () => {
+    body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+  });
+
+  // Load saved mode
+  if (localStorage.getItem("darkMode") === "true") {
+    body.classList.add("dark-mode");
+    toggle.checked = true;
+  }
